@@ -18,10 +18,10 @@
         <!-- add d-none class once game is selected -->
         <div class="d-flex flex-column align-items-center justify-content-center" id="game-area">
             <!-- the begin new game area -->
-            <div class="d-flex flex-row justify-content-around flex-wrap" id="buttons">
+            <div class="d-flex flex-row justify-content-around flex-wrap" id="options">
 
                 <select class="form-control-lg bg-dark text-white" id="categories">
-                    <option selected>Category</option>
+                    <option value="" selected>Category</option>
                     <option value="9">General Knowledge</option>
                     <option value="10">Entertainment: Books</option>
                     <option value="11">Entertainment: Film</option>
@@ -49,20 +49,20 @@
                 </select>
 
                 <select class="form-control-lg bg-dark text-white" id="type">
-                    <option selected>Type</option>
+                    <option value="" selected>Type</option>
                     <option value="boolean">True of False</option>
                     <option value="multiple">Multiple Choice</option>
                 </select>
 
                 <select class="form-control-lg bg-dark text-white" id="difficulty">
-                    <option selected>Difficulty</option>
+                    <option value="" selected>Difficulty</option>
                     <option value="easy">Easy</option>
                     <option value="medium">Medium</option>
                     <option value="hard">Hard</option>
                 </select>
 
                 <select class="form-control-lg bg-dark text-white" id="quantity">
-                    <option selected>Quantity</option>
+                    <option value="" selected>Quantity</option>
                     <option value="10">10 Questions</option>
                     <option value="20">20 Questions</option>
                     <option value="30">30 Questions</option>
@@ -71,7 +71,7 @@
                 </select>
 
                 <select class="form-control-lg bg-dark text-white" id="timer">
-                    <option selected>Time</option>
+                    <option value="" selected>Time</option>
                     <option value="10">10 Seconds</option>
                     <option value="20">20 Seconds</option>
                     <option value="30">30 Seconds</option>
@@ -87,16 +87,13 @@
     </div>
     <!-- question area -->
     <div class="container d-none" id="q-a">
-        <div class="d-flex flex-column justify-content-center align-items-center" id="question">
-            <h2 class="d-flex flex-row">Why?</h2>
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <h2 class="d-flex flex-row" id="question">Why?</h2>
             <!-- answers -->
-            <div class="d-flex flex-row" id="answers">
-                <div class="flex-column">
-                    <div id="answer1" class="flex-row">question 1</div>
-                    <div id="answer2" class="flex-row">question 2</div>
-                    <div id="answer3" class="flex-row">question 3</div>
-                    <div id="answer4" class="flex-row">question 4</div>
-                </div>
+            <div class="list-group" id="answers">
+                <!-- <div class="flex-column">
+                    
+                </div> -->
             </div>
         </div>
     </div>
@@ -105,7 +102,7 @@
         <div class="d-flex flex-column justify-content-center align-items-center" id="results">
             <div class="flex-row" id="result-title">
                 <div class="col">
-                    <button class="btn btn-danger row d-flex mx-auto">FIGHT
+                    <button class="btn btn-danger row d-flex mx-auto" id="restart">FIGHT
                         AGAIN!!</button>
                     <h2 class="row justify-content-center">Results</h2>
                 </div>
@@ -130,12 +127,12 @@
     </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+    <script src="assets/javascript/app.js"></script>
 
 
 </body>
