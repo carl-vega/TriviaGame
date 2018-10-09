@@ -1,10 +1,13 @@
 $(document).ready(function() {
   // default time is 30 seconds per question
   var DEFAULT_TIME = 5 * 1000;
-  var DISPLAY_ANSWER_TIME = 2 * 1000;
+  var DISPLAY_ANSWER_TIME = 0.5 * 1000;
   var questions;
   var currentQuestion;
   var timeOption;
+  var correctQ = [];
+  var incorrectQ = [];
+  var answer = [];
 
   function buildUrl() {
     // variables
@@ -69,7 +72,7 @@ $(document).ready(function() {
 
   function pickAnswer(event) {
     clearTimeout(timer);
-    var answer = $(event.target).html();
+    answer = $(event.target).html();
     var rightAnswer = questions[currentQuestion].correct_answer;
     if (answer === rightAnswer) correct();
     else incorrect();
@@ -82,6 +85,7 @@ $(document).ready(function() {
 
   function correct() {
     $("#answers").html("Correct!");
+    correctQ.push(questions[currentQuestion].question);
     nextQuestion();
   }
 
@@ -89,6 +93,7 @@ $(document).ready(function() {
     $("#answers").html(
       "Incorrect! Answer was " + questions[currentQuestion].correct_answer
     );
+    incorrectQ.push(questions[currentQuestion].question);
     nextQuestion();
   }
 
@@ -107,13 +112,42 @@ $(document).ready(function() {
   function gameOver() {
     $("#question").html("Game over!");
     $("#answers").empty();
+    $("#q-a").addClass("d-none");
+    $("#results-section").removeClass("d-none");
+    results();
+  }
+
+  function results() {
+    $("#correct-num").html("Correct: " + correctQ.length);
+    $("#incorrect-num").html("Incorrect: " + incorrectQ.length);
+    for (var i = 0; i < correctQ.length; i++) {
+      $("#correct-q").append(
+        "<a class='list-group-item' href='https://www.google.com/search?q=" +
+          correctQ[i] +
+          "' target='_blank'>" +
+          correctQ[i] +
+          "<a>"
+      );
+    }
+    for (var i = 0; i < incorrectQ.length; i++) {
+      $("#incorrect-q").append(
+        "<a class='list-group-item' href='https://www.google.com/search?q=" +
+          incorrectQ[i] +
+          "' target='_blank'>" +
+          incorrectQ[i] +
+          "<a>"
+      );
+    }
   }
 
   function start() {
     // api url query input
     var url = buildUrl();
     console.log("Requesting URL " + url);
-
+    $("#correct-num").empty();
+    $("#incorrect-num").empty();
+    $("#correct-q").empty();
+    $("#incorrect-q").empty();
     $.ajax({
       url: url,
       method: "GET"
@@ -128,4 +162,5 @@ $(document).ready(function() {
   }
 
   $("#start").on("click", start);
+  $("#restart").on("click", start);
 });

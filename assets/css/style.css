@@ -3,38 +3,32 @@ html {
   height: 100% !important;
 }
 
-#trivia {
-  height: 100% !important;
+.logo {
+  margin-bottom: 16px;
 }
 
-#game-area {
-  height: 100% !important;
+select {
+  margin-right: 10px;
 }
 
-#q-a {
-  height: 100% !important;
+#answers {
+  min-height: 300px;
 }
 
 #question {
-  height: 100% !important;
+  text-align: center;
+  max-width: 90%;
 }
 
-#results-section {
-  height: 100% !important;
-}
-
+#trivia,
+#question,
+#results-section,
 #results {
   height: 100% !important;
 }
 
-#result-title {
-  width: 100% !important;
-}
-
-#result-numbers {
-  width: 100% !important;
-}
-
+#result-title,
+#result-numbers,
 #result-questions {
   width: 100% !important;
 }
@@ -43,4 +37,9 @@ body {
   background-image: url("../images/background-image.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+#game-area,
+#q-card {
+  min-height: 600px !important;
 }

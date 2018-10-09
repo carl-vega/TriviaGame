@@ -12,12 +12,14 @@
 
 </head>
 
-<body>
+<body class="pt-3">
     <!-- game -->
     <div class="container" id="trivia">
         <!-- add d-none class once game is selected -->
-        <div class="d-flex flex-column align-items-center justify-content-center" id="game-area">
+        <div class="card col-12 shadow-lg rounded bg-success d-flex flex-column align-self-center align-items-center justify-content-center"
+            id="game-area">
             <!-- the begin new game area -->
+            <img class="logo" src="assets/images/trivialtrivia.svg">
             <div class="d-flex flex-row justify-content-around flex-wrap" id="options">
 
                 <select class="form-control-lg bg-dark text-white" id="categories">
@@ -87,13 +89,12 @@
     </div>
     <!-- question area -->
     <div class="container d-none" id="q-a">
-        <div class="d-flex flex-column justify-content-center align-items-center">
+        <div class="card col-12 bg-success d-flex flex-column justify-content-center align-items-center" id="q-card">
+            <img src="assets/images/trivialtrivia.svg">
             <h2 class="d-flex flex-row" id="question">Why?</h2>
             <!-- answers -->
-            <div class="list-group" id="answers">
-                <!-- <div class="flex-column">
-                    
-                </div> -->
+            <div class="list-group text-white" id="answers">
+
             </div>
         </div>
     </div>
@@ -108,19 +109,19 @@
                 </div>
             </div>
             <div class="row" id="result-numbers">
-                <div class="col-6 d-flex border-right border-dark p-3 justify-content-end" id="correct-num">
+                <div class="col-6 d-flex border-right border-white text-white p-3 justify-content-end" id="correct-num">
                     correct
                 </div>
-                <div class="col-6 border-left border-dark p-3" id="incorrect-num">
+                <div class="col-6 border-left border-white text-white p-3" id="incorrect-num">
                     incorrect
                 </div>
             </div>
-            <div class="row justify-content-center" id="result-questions">
-                <div class="col-6 d-flex border-right border-top border-dark p-3 justify-content-end" id="correct-q">
-                    correct questions
+            <div id="result-questions" class="row">
+                <div class="list-group col-6" id="correct-q">
+
                 </div>
-                <div class="col-6 border-left border-top border-dark p-3" id="incorrect-q">
-                    incorrect questions
+                <div class="list-group col-6 pl-3" id="incorrect-q">
+
                 </div>
             </div>
         </div>
