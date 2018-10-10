@@ -1,6 +1,6 @@
 $(document).ready(function() {
   // default time is 30 seconds per question
-  var DEFAULT_TIME = 5 * 1000;
+  var DEFAULT_TIME = 10 * 1000;
   var DISPLAY_ANSWER_TIME = 0.5 * 1000;
   var questions;
   var currentQuestion;
@@ -69,6 +69,13 @@ $(document).ready(function() {
       ranOutOfTime();
     }, timeOption || DEFAULT_TIME);
   }
+  
+  var start = new Date;
+
+  setInterval(function() {
+    $('#timer').text((new Date - start) / 1000 + " Seconds");
+  }, 1000);
+
 
   function pickAnswer(event) {
     clearTimeout(timer);
@@ -157,6 +164,7 @@ $(document).ready(function() {
       timeOption = $("#timer").val();
       askQuestion();
       $("#trivia").addClass("d-none");
+      $("#results-section").addClass("d-none");
       $("#q-a").removeClass("d-none");
     });
   }
